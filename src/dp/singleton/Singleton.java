@@ -2,18 +2,17 @@ package dp.singleton;
 
 public class Singleton {
 	private String text;
-	private Singleton singeltonInstance;
+	private static Singleton singletonInstance;
 	
 	private Singleton() {
-		this.singeltonInstance = new Singleton();
-		this.text = "Clean, unchaged instance";
+		this.text = "New clean instance";
 	}
 	
-	public Singleton getInstance() {
-		if(singeltonInstance==null) {
-			return new Singleton();
+	public static Singleton getInstance() {
+		if(singletonInstance==null) {
+			singletonInstance = new Singleton();
 		}
-		return singeltonInstance;
+		return singletonInstance;
 	}
 
 	public String getText() {
